@@ -73,6 +73,33 @@
 		            <span>Sucursales</span>
 		        </a>
 		    </li>
+		    
+		    <!-- Divider -->
+			<hr class="sidebar-divider">
+									
+			<!-- Heading -->
+			<div class="sidebar-heading">Compras</div>
+			
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/pedidos-compras}">
+				<i class="fas fa-shopping-cart"></i>
+				<span>Pedido de Compra</span>
+				</a>
+			</li>
+			
+			<li class="nav-item">
+		        <a class="nav-link" th:href="@{/presupuestos}">
+		            <i class="fas fa-address-book"></i>
+		            <span>Presupuesto de Compra</span>
+		        </a>
+		    </li>
+		    
+		    <li class="nav-item">
+		        <a class="nav-link" th:href="@{/ordenes}">
+		            <i class="fas fa-shopping-cart"></i>
+		            <span>Orden de Compra</span>
+		        </a>
+		    </li>
 
 		    <!-- Divider -->
 		    <hr class="sidebar-divider">
@@ -88,29 +115,29 @@
 		        </a>
 		        <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
 		            <div class="bg-white py-2 collapse-inner rounded">
-		                <h6 class="collapse-header">Geográficos:</h6>
-		                <a class="collapse-item" href="#">Ciudad</a>
-		                <a class="collapse-item" href="#">Países</a>
-		                <a class="collapse-item" href="#">Barrios</a>
+						<h6 class="collapse-header">Geográficos:</h6>
+		                <a class="collapse-item" th:href="@{/ciudades}">Ciudad</a>
+		                <a class="collapse-item" th:href="@{/paises}">Países</a>
+		                <a class="collapse-item" th:href="@{/barrios}">Barrios</a>
 
 		                <div class="collapse-divider"></div>
 		                <h6 class="collapse-header">Personas:</h6>
-		                <a class="collapse-item" href="#">Empleados</a>
+		                <a class="collapse-item"th:href="@{/empleados}">Empleados</a>
 
 		                <div class="collapse-divider"></div>
 		                <h6 class="collapse-header">Compras:</h6>
 		                <a class="collapse-item" th:href="@{/marcas}">Marcas</a>
-		                <a class="collapse-item" href="#">Tipo de Impuesto</a>
-		                <a class="collapse-item" href="#">Proveedores</a>
-		                <a class="collapse-item" href="#">Mercaderías</a>
+		                <a class="collapse-item" th:href="@{/tipo_impuesto}">Tipo de Impuesto</a>
+		                <a class="collapse-item" th:href="@{/proveedores}">Proveedores</a>
+		                <a class="collapse-item" th:href="@{/mercaderias}">Mercaderías</a>
 
 		                <div class="collapse-divider"></div>
 		                <h6 class="collapse-header">Facturación:</h6>
-		                <a class="collapse-item" href="#">Clientes</a>
-		                <a class="collapse-item" href="#">Condición de Pago</a>
+		                <a class="collapse-item" th:href="@{/clientes}">Clientes</a>
+		                <a class="collapse-item" th:href="@{/condicion}">Condición de Pago</a>
 		                <a class="collapse-item" th:href="@{/bancos}">Bancos</a>
-		                <a class="collapse-item" href="#">Timbrado</a>
-		                <a class="collapse-item" href="#">Caja</a>
+		                <a class="collapse-item" th:href="@{/timbrados}">Timbrado</a>
+		                <a class="collapse-item" th:href="@{/cajas}">Caja</a>
 		            </div>
 		        </div>
 		    </li>
@@ -188,12 +215,12 @@
 							    </thead>
 							    <tbody>
 							    <tr th:each="marca : ${marcas}">
-							        <td th:text="${marca.id}"></td>
+							        <td th:text="${marca.id_marca}"></td>
 							        <td th:text="${marca.descripcion}"></td>
 							        <td>
-							            <a th:href="@{/marcas/editar/{id}(id=${marca.id})}" class="btn btn-warning btn-sm">Editar</a>
+							            <a th:href="@{/marcas/editar/{id}(id=${marca.id_marca})}" class="btn btn-warning btn-sm">Editar</a>
 							            <form th:action="@{/marcas/eliminar}" method="post" style="display:inline;">
-							                <input type="hidden" name="id" th:value="${marca.id}">
+							                <input type="hidden" name="id" th:value="${marca.id_marca}">
 							                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
 							            </form>
 							        </td>

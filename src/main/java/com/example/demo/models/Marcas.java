@@ -21,7 +21,7 @@ public class Marcas {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_marca")
-    private Integer id;
+    private Integer id_marca;
 
     @Column(name = "descripcion", nullable = false, length = 80)
     private String descripcion;
